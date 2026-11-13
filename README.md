@@ -1,4 +1,4 @@
-# syblus-portfolio
+# My Portfolio
 SYBLUS — Thumbnail Designer
 
 Creative. Professional. Reliable.
