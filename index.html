@@ -4,322 +4,360 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080810">
-<title>SYBLUS — Thumbnail Designer</title>
-<meta name="description" content="Official portfolio of Syblus, creative thumbnail designer.">
+<meta name="theme-color" content="#08080c">
+<title>Syblus — Creative Thumbnail Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
 :root {
-  --bg: #080810;
-  --panel: #10101c;
-  --purple: #9b70ff;
-  --text: #f5f3ff;
-  --muted: #9290a5;
+  --bg:#08080c;
+  --surface:#101016;
+  --line:#24232d;
+  --white:#f4f1fa;
+  --muted:#9995a6;
+  --accent:#a58aff;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
+* {margin:0;padding:0;box-sizing:border-box}
+html {scroll-behavior:smooth}
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
+  background:var(--bg);
+  color:var(--white);
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
 }
+a {color:inherit;text-decoration:none}
+button {font:inherit}
 
-a { color: inherit; text-decoration: none; }
+.wrap {width:min(1120px,88%);margin:auto}
 
 nav {
-  width: 100%;
-  padding: 24px 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  z-index: 10;
+  height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #ffffff0a;
+  position:relative;
+  z-index:5;
 }
-
 .logo {
-  font-size: 25px;
-  font-weight: 900;
-  letter-spacing: 3px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:25px;
+  font-weight:700;
+  letter-spacing:3px;
 }
-
-.logo span { color: var(--purple); }
-
-.nav-links {
-  display: flex;
-  gap: 32px;
-  font-size: 13px;
-  color: var(--muted);
+.logo span {color:var(--accent)}
+.links {display:flex;gap:34px}
+.links a {
+  font-size:12px;
+  color:var(--muted);
+  transition:.25s;
 }
-
-.nav-links a:hover { color: white; }
+.links a:hover {color:white}
 
 .hero {
-  min-height: 750px;
-  display: flex;
-  align-items: center;
-  padding: 140px 10% 100px;
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(ellipse at 75% 45%, #512b9940, transparent 40%),
-    radial-gradient(ellipse at 15% 85%, #25206030, transparent 40%);
+  min-height:690px;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  align-items:center;
+  gap:45px;
+  position:relative;
+  padding:90px 0;
 }
-
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  right: 7%;
-  top: 25%;
-  border: 1px solid #a17aff25;
-  border-radius: 50%;
-  box-shadow: 0 0 100px #8955ff12;
+.hero:before {
+  content:"";
+  position:absolute;
+  width:550px;height:550px;
+  border-radius:50%;
+  background:#8060d412;
+  filter:blur(90px);
+  right:0;top:50px;
+  pointer-events:none;
 }
-
-.hero-content { max-width: 750px; position: relative; z-index: 2; }
-
+.hero-content {position:relative;z-index:1}
 .eyebrow {
-  color: var(--purple);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 4px;
-  margin-bottom: 25px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--accent);
+  font-weight:700;
+  margin-bottom:27px;
 }
-
-.hero h1 {
-  font-size: clamp(55px, 10vw, 105px);
-  font-weight: 900;
-  line-height: .95;
-  letter-spacing: -6px;
+.eyebrow:before {
+  content:"";
+  width:24px;height:1px;
+  background:var(--accent);
 }
-
-.hero h1 span {
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--purple);
+h1 {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(55px,8vw,91px);
+  letter-spacing:-6px;
+  line-height:.98;
+  font-weight:700;
 }
-
-.hero p {
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.9;
-  max-width: 490px;
-  margin: 30px 0;
+h1 span {
+  color:transparent;
+  -webkit-text-stroke:1.5px var(--accent);
 }
-
-.buttons { display: flex; gap: 15px; flex-wrap: wrap; }
-
+.hero-copy {
+  max-width:430px;
+  color:var(--muted);
+  line-height:1.9;
+  font-size:14px;
+  margin:28px 0 32px;
+}
+.actions {display:flex;gap:13px;flex-wrap:wrap}
 .btn {
-  padding: 15px 25px;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 700;
-  transition: .3s;
+  padding:14px 22px;
+  border-radius:5px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.5px;
+  transition:.25s;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.primary {background:var(--accent);color:#100d19}
+.primary:hover {background:#c2afff;transform:translateY(-3px)}
+.secondary {border:1px solid var(--line)}
+.secondary:hover {border-color:var(--accent)}
+
+.hero-art {
+  position:relative;
+  height:380px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.art-frame {
+  width:90%;
+  aspect-ratio:1.2;
+  border:1px solid #a58aff45;
+  background:
+    radial-gradient(ellipse at 50% 45%,#7050b83d,transparent 60%),
+    linear-gradient(145deg,#181520,#0b0b12);
+  border-radius:12px;
+  transform:rotate(-5deg);
+  box-shadow:0 25px 100px #0009;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+.art-frame:before {
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid #ffffff18;
+  border-radius:6px;
+}
+.art-title {
+  text-align:center;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(38px,5vw,64px);
+  font-weight:700;
+  line-height:.95;
+  letter-spacing:-3px;
+  text-shadow:0 5px 35px #000;
+}
+.art-title span {
+  display:block;
+  color:var(--accent);
+}
+.art-tag {
+  position:absolute;
+  bottom:27px;
+  right:30px;
+  font-size:9px;
+  letter-spacing:3px;
+  color:#b9a6ff;
+}
+.art-index {
+  position:absolute;
+  top:25px;left:30px;
+  font-size:10px;
+  color:#aaa1c0;
+  letter-spacing:2px;
+}
+.floating-label {
+  position:absolute;
+  right:-5px;bottom:12px;
+  padding:15px 19px;
+  background:#17151f;
+  border:1px solid var(--line);
+  border-radius:7px;
+  font-size:10px;
+  letter-spacing:1px;
+  box-shadow:0 10px 30px #0008;
 }
 
-.btn-primary {
-  background: var(--purple);
-  color: #080810;
+.section {padding:100px 0}
+.section-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:25px;
+  margin-bottom:42px;
 }
-
-.btn-primary:hover {
-  background: white;
-  transform: translateY(-3px);
+.label {
+  color:var(--accent);
+  font-size:10px;
+  letter-spacing:3px;
+  font-weight:700;
+  margin-bottom:13px;
 }
-
-.btn-outline {
-  border: 1px solid #393448;
+h2 {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(34px,5vw,49px);
+  letter-spacing:-2px;
 }
-
-.btn-outline:hover { border-color: var(--purple); }
-
-section { padding: 110px 10%; }
-
-.section-label {
-  color: var(--purple);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 4px;
-  margin-bottom: 18px;
+.sub {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+  max-width:390px;
 }
-
-.section-title {
-  font-size: clamp(32px, 5vw, 48px);
-  font-weight: 800;
-  letter-spacing: -2px;
-  margin-bottom: 18px;
-}
-
-.section-desc {
-  color: var(--muted);
-  line-height: 1.8;
-  max-width: 550px;
-  font-size: 14px;
-}
-
-.work { background: #0c0c16; }
-
+.work {background:#0c0c12;border-top:1px solid #ffffff0b;border-bottom:1px solid #ffffff0b}
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-  margin-top: 55px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
 }
-
 .project {
-  background: var(--panel);
-  border: 1px solid #242235;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: .35s;
+  background:#111117;
+  border:1px solid var(--line);
+  border-radius:8px;
+  overflow:hidden;
+  transition:.3s;
 }
-
 .project:hover {
-  transform: translateY(-7px);
-  border-color: #9b70ff80;
+  transform:translateY(-5px);
+  border-color:#a58aff80;
 }
-
-.preview {
-  aspect-ratio: 16 / 9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  background: radial-gradient(circle at 50% 50%, #58339b, #171126 65%, #090810);
+.thumb {
+  aspect-ratio:16/9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
 }
-
-.preview.two {
-  background: radial-gradient(circle at 50% 50%, #245d80, #101b32 65%, #080b13);
+.thumb:after {
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid #ffffff22;
 }
-
-.preview.three {
-  background: radial-gradient(circle at 50% 50%, #9b3c54, #301321 65%, #10080d);
+.t1 {background:radial-gradient(circle at 50%,#53328e,#181023 65%,#09080e)}
+.t2 {background:radial-gradient(circle at 50%,#286181,#101725 65%,#080b10)}
+.t3 {background:radial-gradient(circle at 50%,#9a4058,#321322 65%,#10080c)}
+.t4 {background:radial-gradient(circle at 50%,#9a752f,#302314 65%,#100c08)}
+.thumb strong {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(28px,4vw,46px);
+  letter-spacing:-2px;
+  text-align:center;
+  line-height:1;
+  z-index:1;
 }
-
-.preview.four {
-  background: radial-gradient(circle at 50% 50%, #96722b, #292015 65%, #100d08);
+.thumb small {
+  position:absolute;
+  z-index:2;
+  bottom:23px;right:24px;
+  font-size:9px;letter-spacing:2px;
 }
-
-.preview::after {
-  content: "";
-  position: absolute;
-  inset: 12px;
-  border: 1px solid #ffffff25;
+.project-info {
+  padding:20px 21px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
 }
-
-.preview h3 {
-  font-size: clamp(24px, 5vw, 48px);
-  font-weight: 900;
-  text-align: center;
-  line-height: 1;
-  text-shadow: 0 4px 20px #000;
-  z-index: 1;
-}
-
-.preview small {
-  position: absolute;
-  bottom: 23px;
-  right: 25px;
-  font-size: 9px;
-  letter-spacing: 3px;
-  z-index: 2;
-}
-
-.project-info { padding: 20px; }
-
-.project-info h3 { font-size: 16px; margin-bottom: 8px; }
-
-.project-info p { font-size: 12px; color: var(--muted); }
+.project-info h3 {font-size:13px}
+.project-info p {font-size:10px;color:var(--muted);margin-top:6px}
+.project-number {color:var(--accent);font-size:11px}
 
 .about-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 60px;
-  align-items: center;
-  margin-top: 35px;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:80px;
+  align-items:center;
 }
-
-.about-text {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 2;
+.about-copy {
+  color:var(--muted);
+  font-size:14px;
+  line-height:2;
+  margin-top:22px;
 }
-
-.skills {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+.services {display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.service {
+  padding:23px 17px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:6px;
 }
-
-.skill {
-  padding: 22px 15px;
-  background: var(--panel);
-  border: 1px solid #242235;
-  border-radius: 7px;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.skill span { color: var(--purple); margin-right: 8px; }
+.service span {color:var(--accent);font-size:18px}
+.service h3 {font-size:12px;margin-top:13px}
+.service p {font-size:10px;color:var(--muted);margin-top:6px}
 
 .contact {
-  text-align: center;
-  background: radial-gradient(ellipse at 50% 100%, #5c339b30, transparent 65%);
+  text-align:center;
+  background:radial-gradient(ellipse at center bottom,#6d4cae24,transparent 65%);
+  border-top:1px solid #ffffff0b;
 }
-
-.contact .section-desc { margin: 0 auto 30px; }
-
+.contact .sub {margin:20px auto 30px}
+.contact h2 {font-size:clamp(40px,7vw,67px)}
 footer {
-  border-top: 1px solid #22202d;
-  padding: 30px 10%;
-  display: flex;
-  justify-content: space-between;
-  color: var(--muted);
-  font-size: 11px;
+  border-top:1px solid var(--line);
+  padding:28px 0;
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:1px;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
 }
 
 .reveal {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: .8s ease;
+  opacity:0;
+  transform:translateY(22px);
+  transition:opacity .7s,transform .7s;
 }
+.reveal.show {opacity:1;transform:translateY(0)}
 
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+@media(max-width:750px) {
+  .hero {grid-template-columns:1fr;padding:95px 0 65px;gap:20px}
+  .hero-art {height:290px}
+  .art-frame {width:80%}
+  .section {padding:75px 0}
+  .section-top {align-items:start;flex-direction:column}
+  .about-grid {grid-template-columns:1fr;gap:35px}
 }
-
-@media(max-width: 700px) {
-  nav { padding: 22px 6%; }
-  .nav-links { gap: 14px; font-size: 11px; }
-  .hero { min-height: 680px; padding: 130px 7% 90px; }
-  .hero h1 { letter-spacing: -3px; }
-  section { padding: 80px 7%; }
-  .gallery { grid-template-columns: 1fr; }
-  .about-grid { grid-template-columns: 1fr; gap: 30px; }
-  footer { gap: 15px; flex-direction: column; }
-}
-
-@media(max-width: 380px) {
-  .nav-links { gap: 9px; }
-  .logo { font-size: 20px; }
+@media(max-width:500px) {
+  .wrap {width:89%}
+  nav {height:70px}
+  .logo {font-size:21px}
+  .links {gap:14px}
+  .links a {font-size:10px}
+  h1 {letter-spacing:-3px}
+  .gallery {grid-template-columns:1fr}
+  .services {gap:9px}
+  .service {padding:17px 12px}
+  footer {flex-direction:column}
 }
 </style>
 </head>
 
 <body>
 
+<div class="wrap">
 <nav>
-  <a href="#" class="logo">SYBLUS<span>.</span></a>
-  <div class="nav-links">
+  <a class="logo" href="#">SYBLUS<span>.</span></a>
+  <div class="links">
     <a href="#work">WORK</a>
     <a href="#about">ABOUT</a>
     <a href="#contact">CONTACT</a>
@@ -328,130 +366,119 @@ footer {
 
 <header class="hero">
   <div class="hero-content reveal">
-    <div class="eyebrow">INDEPENDENT THUMBNAIL DESIGNER</div>
-    <h1>DESIGN<br>THAT <span>STANDS</span><br>OUT.</h1>
-    <p>
-      Creative thumbnail design built to capture attention.
-      Combining visual storytelling, composition and detail
-      to make every project stand out.
+    <div class="eyebrow">INDEPENDENT CREATIVE DESIGNER</div>
+    <h1>VISUALS<br>WITH <span>IMPACT.</span></h1>
+    <p class="hero-copy">
+      I create distinctive, attention-grabbing thumbnails
+      that give your content a visual identity.
+      Thoughtful design, strong composition and attention to detail.
     </p>
-    <div class="buttons">
-      <a href="#work" class="btn btn-primary">EXPLORE MY WORK ↗</a>
-      <a href="#contact" class="btn btn-outline">LET'S CONNECT</a>
+    <div class="actions">
+      <a href="#work" class="btn primary">EXPLORE MY WORK ↗</a>
+      <a href="#contact" class="btn secondary">GET IN TOUCH</a>
     </div>
   </div>
-</header>
 
-<section class="work" id="work">
-  <div class="reveal">
-    <div class="section-label">01 / SELECTED WORK</div>
-    <h2 class="section-title">THE PORTFOLIO.</h2>
-    <p class="section-desc">
-      A collection of thumbnail designs and creative projects.
-      More work will be added here.
-    </p>
+  <div class="hero-art reveal">
+    <div class="art-frame">
+      <div class="art-index">SYBLUS / 001</div>
+      <div class="art-title">CREATE<span>IMPACT.</span></div>
+      <div class="art-tag">THUMBNAIL DESIGN</div>
+    </div>
+    <div class="floating-label">CREATIVITY IN EVERY DETAIL ✦</div>
+  </div>
+</header>
+</div>
+
+<section class="work section" id="work">
+<div class="wrap">
+  <div class="section-top reveal">
+    <div>
+      <div class="label">01 / SELECTED PROJECTS</div>
+      <h2>THE WORK.</h2>
+    </div>
+    <p class="sub">A selection of creative thumbnail projects. Each design has its own visual direction and identity.</p>
   </div>
 
   <div class="gallery">
     <article class="project reveal">
-      <div class="preview">
-        <h3>YOUR<br>ARTWORK</h3>
-        <small>PROJECT 01</small>
-      </div>
-      <div class="project-info">
-        <h3>Thumbnail Project 01</h3>
-        <p>Replace this preview with your actual thumbnail.</p>
-      </div>
+      <div class="thumb t1"><strong>YOUR<br>ARTWORK</strong><small>PROJECT 01</small></div>
+      <div class="project-info"><div><h3>Project One</h3><p>Thumbnail Design</p></div><span class="project-number">01</span></div>
     </article>
-
     <article class="project reveal">
-      <div class="preview two">
-        <h3>YOUR<br>ARTWORK</h3>
-        <small>PROJECT 02</small>
-      </div>
-      <div class="project-info">
-        <h3>Thumbnail Project 02</h3>
-        <p>Replace this preview with your actual thumbnail.</p>
-      </div>
+      <div class="thumb t2"><strong>YOUR<br>ARTWORK</strong><small>PROJECT 02</small></div>
+      <div class="project-info"><div><h3>Project Two</h3><p>Thumbnail Design</p></div><span class="project-number">02</span></div>
     </article>
-
     <article class="project reveal">
-      <div class="preview three">
-        <h3>YOUR<br>ARTWORK</h3>
-        <small>PROJECT 03</small>
-      </div>
-      <div class="project-info">
-        <h3>Thumbnail Project 03</h3>
-        <p>Replace this preview with your actual thumbnail.</p>
-      </div>
+      <div class="thumb t3"><strong>YOUR<br>ARTWORK</strong><small>PROJECT 03</small></div>
+      <div class="project-info"><div><h3>Project Three</h3><p>Thumbnail Design</p></div><span class="project-number">03</span></div>
     </article>
-
     <article class="project reveal">
-      <div class="preview four">
-        <h3>YOUR<br>ARTWORK</h3>
-        <small>PROJECT 04</small>
-      </div>
-      <div class="project-info">
-        <h3>Thumbnail Project 04</h3>
-        <p>Replace this preview with your actual thumbnail.</p>
-      </div>
+      <div class="thumb t4"><strong>YOUR<br>ARTWORK</strong><small>PROJECT 04</small></div>
+      <div class="project-info"><div><h3>Project Four</h3><p>Thumbnail Design</p></div><span class="project-number">04</span></div>
     </article>
   </div>
+</div>
 </section>
 
-<section id="about">
-  <div class="section-label">02 / WHO I AM</div>
-  <h2 class="section-title">BEHIND THE DESIGN.</h2>
+<section class="section" id="about">
+<div class="wrap">
   <div class="about-grid">
-    <p class="about-text">
-      I'm Syblus, a creative thumbnail designer passionate
-      about creating professional and eye-catching visuals.
-      <br><br>
-      I focus on quality, creativity and efficient delivery.
-      My goal is to help creators present their content
-      with thumbnails that leave a lasting impression.
-      <br><br>
-      Open to individual projects and long-term collaborations.
-    </p>
-    <div class="skills">
-      <div class="skill"><span>✦</span> Thumbnail Design</div>
-      <div class="skill"><span>✦</span> Visual Composition</div>
-      <div class="skill"><span>✦</span> Typography</div>
-      <div class="skill"><span>✦</span> Color Grading</div>
+    <div class="reveal">
+      <div class="label">02 / THE DESIGNER</div>
+      <h2>BEHIND<br>THE VISUALS.</h2>
+      <p class="about-copy">
+        I'm Syblus, a creative thumbnail designer passionate
+        about making visuals that stand out.
+        <br><br>
+        My approach combines composition, typography,
+        color and visual storytelling to create thumbnails
+        that communicate effectively.
+        <br><br>
+        I value quality, efficient delivery and long-term
+        creative relationships.
+      </p>
+    </div>
+    <div class="services reveal">
+      <div class="service"><span>✳</span><h3>THUMBNAIL DESIGN</h3><p>Eye-catching visual concepts.</p></div>
+      <div class="service"><span>✳</span><h3>COMPOSITION</h3><p>Balanced and engaging layouts.</p></div>
+      <div class="service"><span>✳</span><h3>TYPOGRAPHY</h3><p>Strong and readable text.</p></div>
+      <div class="service"><span>✳</span><h3>COLOR GRADING</h3><p>Atmosphere and visual depth.</p></div>
     </div>
   </div>
+</div>
 </section>
 
-<section class="contact" id="contact">
-  <div class="section-label">03 / GET IN TOUCH</div>
-  <h2 class="section-title">HAVE A PROJECT?</h2>
-  <p class="section-desc">
-    Let's create something worth looking at.
-    Get in touch for commissions and collaborations.
+<section class="contact section" id="contact">
+<div class="wrap reveal">
+  <div class="label">03 / LET'S COLLABORATE</div>
+  <h2>HAVE AN IDEA?</h2>
+  <p class="sub">
+    Looking for a creative thumbnail designer?
+    Let's bring your next project to life.
   </p>
-  <a href="mailto:YOUR-EMAIL-HERE" class="btn btn-primary">
-    CONTACT SYBLUS ↗
-  </a>
+  <a href="mailto:YOUR-EMAIL-HERE" class="btn primary">CONTACT SYBLUS ↗</a>
+</div>
 </section>
 
+<div class="wrap">
 <footer>
-  <div>© 2026 SYBLUS. ALL RIGHTS RESERVED.</div>
-  <div>DESIGNED WITH CREATIVITY.</div>
+  <span>© 2026 SYBLUS. ALL RIGHTS RESERVED.</span>
+  <span>INDEPENDENT THUMBNAIL DESIGNER.</span>
 </footer>
+</div>
 
 <script>
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+    if(entry.isIntersecting) {
+      entry.target.classList.add('show');
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12 });
+},{threshold:0.12});
 
-document.querySelectorAll('.reveal').forEach(element => {
-  observer.observe(element);
-});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 </body>
